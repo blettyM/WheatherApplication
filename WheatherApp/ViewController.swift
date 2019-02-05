@@ -9,17 +9,28 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if let url = URL(string: "http://www.google.com")
+        {
+            let session = URLSession.shared
+            
+            let task = session.dataTask(with: url)
+            { (data, response, error) -> Void in
+                
+                // Do something with the data
+            }
+            
+            task.resume()
+        }
     }
-
-    override func didReceiveMemoryWarning() {
+    
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
 }
 
